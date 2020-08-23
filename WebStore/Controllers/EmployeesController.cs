@@ -12,6 +12,8 @@ namespace WebStore.Controllers
     {
         private readonly ApplicationDbContext _db;
 
+        [BindProperty]
+        public Employee Employee { get; set; }
         public EmployeesController(ApplicationDbContext db)
         {
             _db = db;
@@ -20,6 +22,27 @@ namespace WebStore.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+        /// <summary>
+        /// Update or Create Get Action
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public IActionResult Upsert(int? id)
+        {
+            Employee = new Employee();
+            if (id == null)
+            {
+                //create request
+                return View(Employee);
+            }
+            //update
+            Employee = _db.Employees.FirstOrDefault(u => u.Id == id);
+            if (Employee == null)
+            {
+                return NotFound();
+            }
+            return View(Employee);
         }
 
         #region API Calls
