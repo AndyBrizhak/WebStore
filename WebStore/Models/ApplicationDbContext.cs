@@ -13,6 +13,6 @@ namespace WebStore.Models
 
         }
 
-        public DbSet<Employee> Type { get; set; }
+        public DbSet<Employee> Employees { get; set; }
     }
 }
