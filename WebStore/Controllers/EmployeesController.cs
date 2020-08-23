@@ -45,6 +45,31 @@ namespace WebStore.Controllers
             return View(Employee);
         }
 
+        /// <summary>
+        /// Post Action method Update and Add
+        /// </summary>
+        /// <returns></returns>
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Upsert()
+        {
+            if (ModelState.IsValid)
+            {
+                if (Employee.Id == 0)
+                {
+                    //create
+                    _db.Employees.Add(Employee);
+                }
+                else
+                {
+                    _db.Employees.Update(Employee);
+                }
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(Employee);
+        }
+
         #region API Calls
         [HttpGet]
         public async Task<IActionResult> GetAll()

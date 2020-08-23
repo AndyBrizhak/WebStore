@@ -12,9 +12,9 @@ function loadDataTable() {
             "datatype": "json"
         },
         "columns": [
-            { "data": "firstname", "width": "20%" },
-            { "data": "surname", "width": "20%" },
-            { "data": "patronymic", "width": "20%" },
+            { "data": "FirstName", "width": "20%" },
+            { "data": "SurName", "width": "20%" },
+            { "data": "Patronymic", "width": "20%" },
             {
                 "data": "id",
                 "render": function (data) {
