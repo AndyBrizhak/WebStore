@@ -32,12 +32,12 @@ namespace WebStore.Controllers
         [HttpDelete]
         public async Task<IActionResult> Delete(int id)
         {
-            var bookFromDb = await _db.Employees.FirstOrDefaultAsync(u => u.Id == id);
-            if (bookFromDb == null)
+            var employeeFromDb = await _db.Employees.FirstOrDefaultAsync(u => u.Id == id);
+            if (employeeFromDb == null)
             {
                 return Json(new { success = false, message = "Error while Deleting" });
             }
-            _db.Employees.Remove(bookFromDb);
+            _db.Employees.Remove(employeeFromDb);
             await _db.SaveChangesAsync();
             return Json(new { success = true, message = "Delete successful" });
         }
