@@ -52,6 +52,15 @@ namespace WebStore.Controllers
             return View(_books);
         }
 
+        public IActionResult BookDetails(int id)
+        {
+            var book = _books.FirstOrDefault(t => t.Id == id);
+            if (book == null)
+                return NotFound();
+
+            return View(_books);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
