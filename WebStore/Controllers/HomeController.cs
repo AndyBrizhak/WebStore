@@ -58,7 +58,7 @@ namespace WebStore.Controllers
             if (book == null)
                 return NotFound();
 
-            return View(_books);
+            return View(book);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
