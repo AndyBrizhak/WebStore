@@ -11,6 +11,25 @@ namespace WebStore.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly List<Book> _books = new List<Book>
+        {
+            new Book
+            {
+                Id = 1,
+                Name = "Abracadabra",
+                Author = "Unknow",
+                ISBN = 1233445
+            },
+
+            new Book
+            {
+                Id = 2,
+                Name = "My Life",
+                Author = "Logkin",
+                ISBN = 12367880
+            }
+        };
+
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -26,6 +45,11 @@ namespace WebStore.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+
+        public IActionResult Books()
+        {
+            return View(_books);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
