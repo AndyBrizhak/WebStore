@@ -1,0 +1,31 @@
+﻿@model WebStore.Models.Book
+
+
+<h1>BookDetails</h1>
+
+<h4>Book</h4>
+<hr />
+<table class="table table-bordered">
+    <tr>
+        <td>Id</td>
+        <td>@Model.Id</td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td>@Model.Name</td>
+    </tr>
+    <tr>
+        <td>Author</td>
+        <td>@Model.Author</td>
+    </tr>
+    <tr>
+        <td>ISBN</td>
+        <td>@Model.ISBN</td>
+    </tr>
+    <tr>
+        @Html.ActionLink("Back to Book List", "Books")
+    </tr>
+</table>
+
+
+
